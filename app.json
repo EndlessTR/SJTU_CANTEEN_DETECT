@@ -1,0 +1,50 @@
+
+{
+  "pages": [
+    "pages/treeHole/treeHole",
+    "pages/index/index",
+    "pages/crowd/crowd",
+    "pages/comment/comment",
+    "pages/detail/detail",
+    "pages/totalCrowd/totalCrowd"
+  ],
+  "window": {
+    "navigationBarTitleText": "校餐EaseFlow",
+     "navigationBarTextStyle": "white",
+     "navigationBarBackgroundColor": "#D1500F"
+  },
+  "tabBar": {
+    "selectedColor": "#D1500F", 
+    "list": [
+      {
+        "pagePath": "pages/treeHole/treeHole",
+        "text": "评论树洞",
+        "iconPath": "images/speak.png",
+        "selectedIconPath": "images/speak_selected.png" 
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "食堂",
+        "iconPath": "images/shitang.png",
+        "selectedIconPath": "images/shitang_selected.png"
+      },
+      {
+        "pagePath": "pages/totalCrowd/totalCrowd",
+        "text": "人流量",
+        "iconPath": "images/renliuliang.png",
+        "selectedIconPath": "images/renliuliang_selected.png" 
+      }
+    ]
+  },
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "需要您的授权以保存图片到相册"
+    },
+    "scope.camera": {
+      "desc": "需要您的授权以使用相机拍照"
+    }
+  },
+  "libs": {
+    "wxcharts": "libs/wxcharts.js"
+  }
+}

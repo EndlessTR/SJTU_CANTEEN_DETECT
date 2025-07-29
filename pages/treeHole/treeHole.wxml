@@ -1,0 +1,122 @@
+<scroll-view class="page-container" scroll-y="true" scroll-with-animation="true" bindscrolltolower="loadPostsFromCloud">
+  <!-- 发帖表单 -->
+  <view class="form-card">
+    <text class="form-title" style="position: relative; left: 266rpx; top: -20rpx">分享想法</text>
+
+    <!-- 输入标题 -->
+    <view class="input-group">
+      <input 
+        class="input" 
+        placeholder="请输入标题" 
+        value="{{ newTitle }}" 
+        bindinput="inputTitle" 
+        style="position: relative; left: 0rpx; top: 0rpx"
+      />
+    </view>
+
+    <!-- 输入内容 -->
+    <view class="input-group">
+      <textarea 
+        class="textarea" 
+        placeholder="请输入想法内容..." 
+        value="{{ newContent }}" 
+        bindinput="inputContent" 
+        style="height: 239rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"
+      />
+    </view>
+
+    <!-- 图片上传 -->
+    <view class="input-group">
+      <text class="label">上传图片（最多9张）</text>
+      <view class="image-list">
+        <!-- 遍历 newImages 显示缩略图 -->
+        <block wx:for="{{ newImages }}" wx:key="index">
+          <view class="image-item">
+            <image src="{{ item }}" class="preview-img" />
+            <view class="remove-btn" bindtap="removeImage" data-index="{{ index }}">×</view>
+          </view>
+        </block>
+        <!-- 上传按钮 -->
+        <button
+          wx:if="{{ newImages.length < 9 }}"
+          class="btn-upload"
+          bindtap="chooseImage"
+          style="position: relative; left: 0rpx; top: 10rpx"
+        >
+          + 上传图片
+        </button>
+      </view>
+    </view>
+
+    <!-- 发帖按钮 -->
+    <button 
+      class="btn-primary" 
+      bindtap="submitPost" 
+      disabled="{{isPosting}}"
+    >
+      发 帖
+    </button>
+  </view>
+
+  <!-- 网格样式帖子列表 -->
+  <view class="grid">
+    <block wx:for="{{ posts }}" wx:key="_id">
+      <view class="post-item" style="width: 327rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
+        <!-- 比例 3:2 -->
+        <view class="cover-wrapper">
+          <image
+            src="{{ item.imageURLs && item.imageURLs[0] || '/images/default_cover.png' }}"
+            mode="aspectFill"
+            class="cover-img"
+            bindtap="goDetail" 
+            data-id="{{ item._id }}"
+          />
+        </view>
+
+        <!-- 标题 -->
+        <text class="title">{{ item.title || '无标题' }}</text>
+
+        <!-- 作者 & 点赞 -->
+        <view class="meta">
+          <!-- 作者信息 -->
+          <view class="author">
+            <image
+              src="{{ item.avatar || '/images/default_avatar.png' }}"
+              class="avatar"
+            />
+            <text class="nickname">{{ item.username || '匿名用户' }}</text>
+          </view>
+          <!-- 点赞信息 -->
+          <view 
+            class="likes" 
+            bindtap="likePost" 
+            data-id="{{ item._id }}"
+            data-isliked="{{item.like}}"
+          >
+            <!-- 已点赞图标显示 -->
+            <image 
+              wx:if="{{item.like}}"
+              src="/images/likes_active.png?t={{ Math.random() }}"
+              class="like-icon"
+            />
+            <!-- 未点赞图标显示 -->
+            <image 
+              wx:else
+              src="/images/likes.png?t={{ Math.random() }}"
+              class="like-icon"
+            />
+            <text class="like-count">{{ item.likeCount || 0 }}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<!-- 悬浮刷新按钮 -->
+<!-- 悬浮按钮 -->
+<view class="refresh-button" bindtap="refreshAndBackToTop">
+  <image src="/images/refresh.png" class="refresh-icon" />
+</view>
+
+
+

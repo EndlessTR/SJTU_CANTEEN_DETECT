@@ -1,0 +1,79 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <text class="title">请选择餐厅</text>
+
+  <!-- 筛选栏 -->
+  <view class="filter-bar" bindtap="toggleFilter">
+    <text>选择食堂</text>
+    <text>{{selectedRestaurant && selectedRestaurant.name || '请选择'}}</text>
+  </view>
+
+  <!-- 修改显示条件，允许在已选择餐厅时也能展开选项 -->
+  <view wx:if="{{isFilterOpen}}" class="new-filter-options">
+    <block wx:for="{{restaurants}}" wx:key="name">
+      <view 
+        class="new-option-item" 
+        bindtap="selectRestaurant" 
+        data-name="{{item.name}}" 
+        data-description="{{item.description}}" 
+        data-image="{{item.image}}" 
+        data-longitude="{{item.longitude}}" 
+        data-latitude="{{item.latitude}}" 
+        data-ratings="{{item.ratings}}"
+      >
+        <image class="option-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="option-text">
+          <text class="option-name">{{item.name}}</text>
+          <view class="option-meta">
+            <text class="option-desc">{{item.description}}</text>
+            <text class="option-rating">{{item.averageRating || '暂无评分'}} 分</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 仅在选中餐厅后显示该餐厅的详细信息 -->
+  <view wx:if="{{selectedRestaurant}}" class="selected-info fade-in">
+    <!-- 显示当前选中的食堂名称 -->
+    <view class="current-restaurant">
+      <text>当前食堂: {{selectedRestaurant.name}}</text>
+    </view>
+
+    <view class="selected-restaurant">
+      <image src="{{selectedRestaurant.image}}" mode="aspectFill" class="selected-image"></image>
+      <text class="selected-name">{{selectedRestaurant.name}}</text>
+      <text class="selected-desc">{{selectedRestaurant.description}}</text>
+
+      <view class="button-group">
+        <!-- 移除人流量反馈按钮 -->
+        <button class="action-button" bindtap="goToComment">前往评论区</button>
+      </view>
+      <!-- 显示平均评分 -->
+      <view>
+        <text>【平均评分】{{selectedRestaurant.averageRating || '暂无评分'}} 星</text>
+      </view>
+      <!-- 添加楼层和窗口信息 -->
+      <view wx:if="{{selectedRestaurant.floorInfo}}">
+        <text class="floor-info">【楼层窗口信息】 {{selectedRestaurant.floorInfo}}</text>
+      </view>
+    </view>
+
+    <!-- 地图组件 -->
+    <map 
+      id="myMap" 
+      longitude="{{selectedRestaurant.longitude}}" 
+      latitude="{{selectedRestaurant.latitude}}" 
+      scale="18" 
+      style="width: 100%; height: 500rpx;"
+      markers="{{markers}}"
+      class="map-container">
+    </map>
+  </view>
+</view>
+
+
+
+
+
+

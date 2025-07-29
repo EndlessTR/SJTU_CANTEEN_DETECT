@@ -1,0 +1,38 @@
+<view class="container">
+  <!-- 食堂选择器 -->
+  <picker mode="selector" bindchange="bindPickerChange" value="{{pickerIndex}}" range="{{restaurants}}" range-key="name">
+    <view class="picker">
+      当前选择：{{pickerIndex >= 0 ? restaurants[pickerIndex].name : '请选择食堂'}}
+    </view>
+  </picker>
+
+  <!-- 标题 -->
+  <view class="title">
+    人流量指数
+    <block wx:if="{{pickerIndex >= 0}}">
+      — {{restaurants[pickerIndex].name}}
+    </block>
+  </view>
+
+  <!-- 加载中提示 -->
+  <view wx:if="{{isLoadingFlow}}" class="loading">
+    <text>人流量加载中...</text>
+  </view>
+  <!-- 无数据提示 -->
+  <view wx:elif="{{!selectedCrowdData.length}}">
+    <text>暂无人流量数据</text>
+  </view>
+  <!-- 折线图画布 -->
+  <canvas id="crowdChart" canvas-id="crowdChart" style="width:100%; height:500px; border:1px solid #ddd;"></canvas>
+</view>
+  
+
+
+
+
+
+
+
+
+
+

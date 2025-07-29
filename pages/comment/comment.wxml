@@ -1,0 +1,50 @@
+<view class="container">
+  <text class="title">请对 {{restaurant}} 进行评价</text>
+
+  <!-- 打星按钮 -->
+  <view class="star-rating">
+    <block wx:for="{{[1, 2, 3, 4, 5]}}" wx:key="*this">
+      <image 
+        src="{{index < starRating ? '/images/colored_star.png' : '/images/star.png' }}" 
+        mode="aspectFit" 
+        bindtap="rateStar" 
+        data-rating="{{item}}"
+        style="width: 40rpx; height: 40rpx; margin-right: 10rpx;"
+      />
+    </block>
+  </view>
+
+  <!-- 窗口名称输入框 -->
+  <view class="window-name-input">
+    <text>窗口名称（可选填）:</text>
+    <input 
+      type="text" 
+      value="{{windowName}}" 
+      bindinput="inputWindowName" 
+      placeholder="请输入窗口名称"
+    />
+  </view>
+
+  <!-- 评论输入框 -->
+  <textarea class="comment-input" value="{{comment}}" bindinput="inputComment" placeholder="请输入评论内容" />
+
+  <!-- 提交按钮 -->
+  <button class="submit-button" bindtap="submitComment">提交评论</button>
+
+  <!-- 展示历史评论 -->
+  <view class="history-comments">
+    <text class="history-title">历史评论</text>
+    <view wx:for="{{historyComments}}" wx:key="time">
+      <text class="comment-index">序号: {{item.serialNumber}}</text>
+      <text class="comment-time">{{item.time}}</text>
+      <text wx:if="{{item.windowName}}" class="comment-window">窗口名称: {{item.windowName}}</text>
+      <text class="comment-content">{{item.content}}</text>
+      <text class="comment-star-count">打星数: {{item.starRating}} 星</text>
+      <view class="like-section">
+        <image src="/images/likes.png" mode="aspectFit" bindtap="likeComment" data-index="{{index}}" style="width: 30rpx; height: 30rpx; margin-right: 20rpx;"></image>
+        <text>点赞数: {{item.likeCount}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+

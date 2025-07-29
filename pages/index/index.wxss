@@ -1,0 +1,255 @@
+/* 容器样式 */
+.container {
+  padding: 30rpx;
+  background-color: #F7EAD8; /* 更浅的背景色 */
+  box-sizing: border-box;
+}
+
+/* 标题样式 */
+.title {
+  font-size: 40rpx; /* 增大字体大小 */
+  font-weight: bold;
+  color: #D1500F; 
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+/* 筛选栏样式 */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color:#D1500F; 
+  margin-bottom: 30rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1); /* 更明显的阴影 */
+  box-sizing: border-box;
+  color:#F7EAD8;
+}
+
+/* 新的筛选选项样式 */
+.new-filter-options {
+  background-color: #ffffff; /* 白色背景 */
+  border: 1rpx solid #e0e0e0; /* 更浅的边框颜色 */
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1); /* 更明显的阴影 */
+  box-sizing: border-box;
+  width: calc(100% - 60rpx); /* 调整宽度 */
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.new-option-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.option-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.option-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option-desc {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.option-rating {
+  font-size: 28rpx;
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.new-option-item:last-child {
+  border-bottom: none;
+}
+
+.option-image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1); /* 更轻的阴影 */
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-name {
+  font-size: 28rpx; /* 适中的字体大小 */
+  font-weight: bold;
+  display: block;
+  color:#D1500F; 
+}
+
+.option-desc, .selected-desc {
+  white-space: pre-wrap;
+  font-size: 24rpx; /* 适中的字体大小 */
+  color: #666; /* 浅灰色 */
+}
+
+/* 餐厅列表样式 */
+.restaurant-list {
+  margin-bottom: 30rpx;
+}
+
+.restaurant-item {
+  margin-bottom: 30rpx;
+}
+
+.restaurant-button {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #ffffff; /* 白色背景 */
+  border: 1rpx solid #e0e0e0; /* 更浅的边框颜色 */
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1); /* 更明显的阴影 */
+  box-sizing: border-box;
+}
+
+.restaurant-image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  border-radius: 12rpx;
+}
+
+.restaurant-name {
+  font-size: 30rpx; /* 适中的字体大小 */
+  font-weight: bold;
+  color:#D1500F; /* 深灰色 */
+}
+
+.restaurant-description {
+  font-size: 26rpx; /* 适中的字体大小 */
+  color: #666; /* 浅灰色 */
+}
+
+/* 当前餐厅样式 */
+.current-restaurant {
+  font-size: 32rpx; /* 适中的字体大小 */
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  color:#f39c12;
+  text-align: center;
+}
+
+.selected-restaurant {
+  background-color: #ffffff; /* 白色背景 */
+  padding: 20rpx;
+  border: 1rpx solid #e0e0e0; /* 更浅的边框颜色 */
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  width: calc(100% - 60rpx); /* 调整宽度 */
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1); /* 更明显的阴影 */
+  box-sizing: border-box;
+}
+
+.selected-name {
+  font-size: 32rpx; /* 适中的字体大小 */
+  font-weight: bold;
+  margin-bottom: 15rpx;
+  color: #333; /* 深灰色 */
+}
+
+.selected-desc {
+  font-size: 26rpx; /* 适中的字体大小 */
+  color: #666; /* 浅灰色 */
+  margin-bottom: 20rpx;
+}
+
+button {
+  margin-right: 15rpx;
+  background-color: #D1500F; /* 交大红 */
+  color: white;
+  border-radius: 50rpx;
+  padding: 12rpx 24rpx; /* 调整按钮大小 */
+  box-sizing: border-box;
+}
+
+/* 渐入动画 */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 选中餐厅图片样式 */
+.selected-image {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+}
+
+/* 按钮组样式 */
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30rpx;
+}
+
+/* 操作按钮样式 */
+.action-button {
+  flex: 1;
+  margin: 0 15rpx;
+  background-color: #D1500F; /* 交大红 */
+  color: white;
+  border-radius: 50rpx;
+  padding: 12rpx 24rpx; /* 调整按钮大小 */
+  box-sizing: border-box;
+}
+
+/* 地图容器样式 */
+.map-container {
+  border-radius: 12rpx;
+  overflow: hidden;
+  margin-top: 30rpx;
+  height: 400rpx;
+  box-sizing: border-box;
+}
+
+.floor-info {
+  word-break: break-all; 
+  white-space: pre-wrap; 
+  font-size: 24rpx; /* 适中的字体大小 */
+  color: #666; /* 浅灰色 */
+}
+
+
+

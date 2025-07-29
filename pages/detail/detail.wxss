@@ -1,0 +1,50 @@
+.page-container {
+  padding: 30rpx;
+  background-color: #f9f9f9;
+}
+
+.detail-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx; /* 增加标题和内容之间的间距 */
+}
+
+.detail-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5; /* 设置行高，使内容更易读 */
+  margin-bottom: 30rpx; /* 增加内容和下一部分的间距 */
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 图片轮播样式 */
+.image-swiper {
+  width: 100%;
+  height: 1000rpx;       /* 增加高度，原高度为 400rpx，这里调整为 600rpx */
+  margin-bottom: 30rpx; /* 增加间距，确保图片轮播和详情文本之间有间隔 */
+}
+
+/* 轮播图中的图片样式 */
+.detail-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  object-fit: cover;    /* 保证图片不变形，充满容器 */
+}
+
+/* 详情文本区域样式 */
+.detail-info {
+  padding: 0 30rpx;      /* 增加内边距，使文本内容不紧贴边缘 */
+}
+
+/* 额外优化：图片轮播底部的指示点样式 */
+.swiper-indicator {
+  background-color: rgb(255, 248, 248);  
+  border-radius: 2rpx;                   /* 圆角效果 */
+}

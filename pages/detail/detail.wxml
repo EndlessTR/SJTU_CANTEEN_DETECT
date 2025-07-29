@@ -1,0 +1,26 @@
+<view wx:if="{{isLoading}}" class="loading">
+  <text>加载中...</text>
+</view>
+
+<view wx:else class="page-container">
+  <!-- 图片轮播区域 -->
+  <swiper 
+    class="image-swiper" 
+    autoplay="{{false}}" 
+    indicator-dots="{{true}}" 
+    indicator-class="swiper-indicator"
+  >
+    <block wx:for="{{imageList}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="detail-image" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 详情文本区域 -->
+  <view class="detail-info">
+    <view class="detail-title">{{post.title}}</view>
+    <view class="detail-content">{{post.content}}</view>
+  </view>
+</view>
+

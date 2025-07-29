@@ -1,0 +1,56 @@
+.container {
+  padding: 20rpx;
+  color:#F7EADA;
+  background-color:#F7EADA;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  display: block;
+  color:#D1500F;
+}
+
+.crowd-list {
+  margin-bottom: 30rpx;
+  font-size: 26;
+}
+
+.crowd-item {
+  background-color: #f8f8f8;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28;
+}
+
+.picker {
+  font-size: 28rpx;
+  padding: 20rpx;
+  background: #D1500F;
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 更新后的 canvas 样式 */
+canvas {
+  width: 100% !important;   /* 强制 canvas 宽度为100% */
+  height: 500px !important; /* 增加 canvas 高度 */
+  border: 1px solid #ddd;  /* 添加边框调试 */
+  display: block;           /* 确保 canvas 为块级元素 */
+  margin-top: 20rpx;        /* 上边距 */
+  background-color: #f8f8f8; /* 背景颜色，方便调试 */
+  margin-bottom: 30rpx;     /* 与其他元素的间距 */
+}
+
+
+
+
+
+
